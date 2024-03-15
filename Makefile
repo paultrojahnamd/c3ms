@@ -40,7 +40,7 @@ c3ms : $(objs)
 
 %.tab.cpp: %.y %.l
 	bison  -d -o $@ $<
-	-@mv $(@D)/`basename $@ .cpp`.hpp $@.h
+	-@cp $(@D)/`basename $@ .cpp`.hpp $@.h
 
 %lex.cpp:  %.l %.tab.cpp
 	flex -Cemr -o$@ $<
